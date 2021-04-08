@@ -19,16 +19,38 @@
         <div class="form__top">
             <h2>Formulario de registro para hijos </h2>
         </div>      
-        <form class="form__reg" action="/hijo/">
-            {{ csrf_token }}
-            <input class="input" type="text" placeholder="&#128100;  Nombre" required autofocus>
-            <input class="input" type="text" placeholder="  &#127380;  Id" required>
-            <input class="input" type="text" placeholder="  &#127380;  Id del padre" required>
+        <form class="form__reg" action="/hijo/" method="POST">
+            {% csrf_token %}
+            <input type="radio" id="CREATE" name="crud-method" value="CREATE">
+            <label for="CREATE">CREATE</label><br>
+            <input type="radio" id="UPDATE" name="crud-method" value="UPDATE">
+            <label for="UPDATE">UPDATE</label><br>
+            <input type="radio" id="DELETE" name="crud-method" value="DELETE">
+            <label for="DELETE">DELETE</label><br>
+            <input class="input" type="text" placeholder="&#128100;  Nombre"  name = "nombre"  autofocus>
+            <input class="input" type="text" placeholder="  &#127380;  Id" name = "id" required>
+            <input class="input" type="text" placeholder="  &#127380;  Id del padre" name = "hijode">
             <div class="btn__form">
                 <input class="btn__submit" type="submit" value="REGISTRAR">
                 <input class="btn__reset" type="reset" value="LIMPIAR"> 
             </div>
         </form>
+    </div>
+    <div id="main-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th><th>Nombre</th><th>Hijode</th>
+                </tr>
+            </thead>
+            {% for hijo in hijos %}
+            <tr>
+                <td>{{ hijo.id }}</td><td>{{ hijo.nombre }}</td><td>{{ hijo.hijode }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
     </div>
     </body>
 </html>

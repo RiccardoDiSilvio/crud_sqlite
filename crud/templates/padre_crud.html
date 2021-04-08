@@ -25,7 +25,9 @@
                 <label for="CREATE">CREATE</label><br>
                 <input type="radio" id="UPDATE" name="crud-method" value="UPDATE">
                 <label for="UPDATE">UPDATE</label><br>
-                <input class="input" type="text" placeholder="&#128100;  Nombre"  name = "nombre" required autofocus>
+                <input type="radio" id="DELETE" name="crud-method" value="DELETE">
+                <label for="DELETE">DELETE</label><br>
+                <input class="input" type="text" placeholder="&#128100;  Nombre"  name = "nombre" autofocus>
                 <input class="input" type="text" placeholder="  &#127380;  Id" name = "id" required>
                 <div class="btn__form">
                     <input class="btn__submit" type="submit" value="REGISTRAR">
@@ -34,5 +36,21 @@
             </form>
         </div>
 
+        <div id="main-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th><th>Nombre</th>
+                    </tr>
+                </thead>
+                {% for padre in padres%}
+                <tr>
+                    <td>{{ padre.id }}</td><td>{{ padre.nombre }}</td>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
     </body>
 </html>

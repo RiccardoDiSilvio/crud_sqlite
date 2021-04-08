@@ -13,7 +13,8 @@ body {
 	background-color: #EFEFEF;
 	margin: 5% auto;
 	padding-bottom: 1rem;
-	display: flex; 
+	
+	
 }
 
 .form__top {
@@ -86,16 +87,41 @@ a {
 	text-decoration:none; 
 	margin: 10px;
 	border-radius: 5px;	
-	background: #FA9535;
+	background: #EDA135;
 	color: #fff;
 	padding: 10px 20px;
 
 }
 
-form {
-	flex: 1;
+
+#main-container{
+	margin-left: auto;
+	margin-right:auto;
+	width: 15%;
 }
 
-table {
-	flex: 1;
+
+table{
+	background-color: white;
+	text-align: left;
+	width: 100%; 
+	border-collapse: collapse;
+}
+th,td{
+	padding: 5px;
+
+}
+
+thead{
+	background-color:#EDA135;
+	border-bottom: solid 5px #FF8710;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color:#f5ba6e; 
+	color:white;
 }
