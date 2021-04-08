@@ -14,7 +14,7 @@
     
         
     <body>
-        <a href="hijo.html">Registro para hijos</a> 
+        <a href="/main">Volver al inicio</a> 
         <div class="container">
             <div class="form__top">
                 <h2>Formulario de registro para padres </h2>
@@ -52,5 +52,11 @@
                 
             </table>
         </div>
+        {%if context.result %}
+        <a>Resultado: {{ context.result }}</a>
+        {% endif%}
+        {% if context.status %}
+        <a>Status: {{ context.status }}</a>
+        {% endif %}
     </body>
 </html>

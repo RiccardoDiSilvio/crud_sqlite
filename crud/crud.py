@@ -53,3 +53,27 @@ def delete(table, id):
         return {"result": "error, no such column or syntax error", "status": "error"} 
 
 
+def consulta1(id): 
+    connection = sqlite3.connect("db.sqlite3")
+    cursor = connection.cursor()
+    id_padre=id 
+    cursor.execute("SELECT hijo_id,nom  FROM hijo  WHERE padre_id = {};".format(id_padre))
+    return cursor.fetchall() 
+
+def consulta2():
+    connection = sqlite3.connect("db.sqlite3")
+    cursor = connection.cursor()
+    cursor.execute("SELECT p.padre_id,p.nom FROM PADRE as p WHERE (SELECT count(*) FROM hijo as h where h.padre_id = p.padre_id) = 0;")
+    return cursor.fetchall() 
+
+def consulta3():
+    connection = sqlite3.connect("db.sqlite3")
+    cursor = connection.cursor()
+    cursor.execute("SELECT hijo_id,nom,padre_id FROM  hijo WHERE padre_id IS NULL;")
+    return cursor.fetchall() 
+
+def consulta4():
+    connection = sqlite3.connect("db.sqlite3")
+    cursor = connection.cursor()
+    cursor.execute("SELECT p.padre_id,p.nom, (SELECT count(*) from hijo as h where h.padre_id = p.padre_id) from padre as p;")
+    return cursor.fetchall()

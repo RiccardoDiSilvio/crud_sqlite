@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+
+<html lang="en"> 
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">  
+     <link rel="stylesheet"  href="/static/css/reset.css">    
+     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+     <link rel="stylesheet"  href="/static/css/main.css">
+   
+      
+    </head>
+    
+        
+    <body>
+        <a href="/main">Volver al inicio</a> 
+        <div class="container">
+        <div class="form__top">
+            <h2>Escribe el id del padre cuyos hijos quieres consultar</h2>
+        </div>      
+        <form class="form__reg" action="/consulta1/" method="POST">
+            {% csrf_token %}
+            <input class="input" type="text" placeholder="  &#127380;  Id" name = "id" required>
+            <div class="btn__form">
+                <input class="btn__submit" type="submit" value="Consultar">
+                <input class="btn__reset" type="reset" value="LIMPIAR"> 
+            </div>
+        </form>
+    </div>
+    <div id="main-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th><th>Nombre</th>
+                </tr>
+            </thead>
+            {% for padre in padres %}
+            <tr>
+                <td>{{ padre.id }}</td><td>{{ padre.nombre }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+    </body>
+</html>
