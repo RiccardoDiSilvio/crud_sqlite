@@ -194,6 +194,11 @@ class VeterinarioCrudView(APIView):
         return render(request, "index8.html", {"veterinarios": list_elements("veterinario")})
 
 
+class CambioDeRolList(APIView):
+    def get(self, request):
+        return render(request, "index4.html", {"cambios": list_elements("cambio_de_rol")})
+
+
 def MainMenuView(request):
     return render(request, "index.html")
 
@@ -220,6 +225,8 @@ def list_elements(table):
             values.append({"venta_id": line[0], "tipo_venta": line[1], "fecha": line[2], "animal_id": line[3], "pajilla_id": line[4], "peso_en_venta": line[5], "precio": line[6]})
         elif table == "veterinario":
             values.append({"vet_id": line[0], "telefono": line[1], "email": line[2]})
+        elif table == "cambio_de_rol":
+            values.append({"ternero_id": line[0], "rol_escogido": line[1]})
         
     print(table, values)
     return values

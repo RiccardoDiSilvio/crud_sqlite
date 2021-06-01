@@ -11,4 +11,5 @@ urlpatterns = [
     path('proceso/', views.ProcesoVeterinarioCrudView.as_view()),
     path('venta/', views.VentaCrudView.as_view()),
     path('veterinario/', views.VeterinarioCrudView.as_view()),
+    path('cambio_rol/', views.CambioDeRolList.as_view()),
 ]
