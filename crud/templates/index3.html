@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+   
+	<title>NavBar</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/Style.css">
+</head>
+<body>
+  <header class="header">
+  	<nav class="nav">
+  		
+  		<ul class="nav-menu">
+            <li class="nav-menu-item"><a href="/venta" class="nav-menu-link nav-link">Venta</a></li>
+            <li class="nav-menu-item"><a href="/animal" class="nav-menu-link nav-link">Animal</a></li>
+            <li class="nav-menu-item"><a href="/proceso" class="nav-menu-link nav-link">Proceso veterinario</a></li>
+            <li class="nav-menu-item"><a href="/pajilla" class="nav-menu-link nav-link">Pajilla</a></li>
+            <li class="nav-menu-item"><a href="" class="nav-menu-link nav-link">Cambio de Rol</a></li>
+            <li class="nav-menu-item"><a href="/inseminacion" class="nav-menu-link nav-link">Inseminacion</a></li>
+            <li class="nav-menu-item"><a href="/cita_control" class="nav-menu-link nav-link">Citas de Control</a></li>
+            <li class="nav-menu-item"><a href="/alimentacion" class="nav-menu-link nav-link">Alimentacion</a></li>
+            <li class="nav-menu-item"><a href="/veterinario" class="nav-menu-link nav-link">Veterinario</a></li>
+
+
+
+  		</ul>
+     </nav>
+  </header>
+
+  <div class="container2">
+        <div class="form__top">
+            <h2>Registro de pajillas </h2>
+        </div>      
+        <form class="form__reg" action="/pajilla/" method="POST">
+            {% csrf_token %}
+            <input type="radio" id="CREATE" name="crud_method" value="CREATE">
+            <label for="CREATE">CREATE</label><br>
+            <input type="radio" id="UPDATE" name="crud_method" value="UPDATE">
+            <label for="UPDATE">UPDATE</label><br>
+            <input type="radio" id="DELETE" name="crud_method" value="DELETE">
+            <label for="DELETE">DELETE</label><br>
+            <input class="input" type="text" placeholder="Pajilla Id" name = "pajilla_id"  autofocus>
+            <input class="input" type="text" placeholder="Fecha Creacion"  name = "fecha"  autofocus>
+            <input class="input" type="text" placeholder="Toro Id" name = "toro_id"  autofocus>
+            
+            
+           
+            <div class="btn__form">
+                <input class="btn__submit" type="submit" value="REGISTRAR">
+                <input class="btn__reset" type="reset" value="LIMPIAR">
+                <input class="btn__buscar" type="reset" value="BUSCAR"> 
+            </div>
+        </form>
+    </div>
+
+    
+    <div id="main-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pajilla Id</th><th>Fecha Creacion</th><th>Toro Id</th>
+                </tr>
+            </thead>
+            {% for pajilla in pajillas%}
+            <tr>
+                <td>{{pajilla.pajilla_id}}</td><td>{{pajilla.fecha}}</td><td>{{pajilla.toro_id}}</td>
+            </tr>
+            {% endfor%}
+        </table>
+    </div>
+</body>
+</html>

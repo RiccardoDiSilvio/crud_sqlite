@@ -21,11 +21,11 @@
         </div>      
         <form class="form__reg" action="/hijo/" method="POST">
             {% csrf_token %}
-            <input type="radio" id="CREATE" name="crud-method" value="CREATE">
+            <input type="radio" id="CREATE" name="crud_method" value="CREATE">
             <label for="CREATE">CREATE</label><br>
-            <input type="radio" id="UPDATE" name="crud-method" value="UPDATE">
+            <input type="radio" id="UPDATE" name="crud_method" value="UPDATE">
             <label for="UPDATE">UPDATE</label><br>
-            <input type="radio" id="DELETE" name="crud-method" value="DELETE">
+            <input type="radio" id="DELETE" name="crud_method" value="DELETE">
             <label for="DELETE">DELETE</label><br>
             <input class="input" type="text" placeholder="&#128100;  Nombre"  name = "nombre"  autofocus>
             <input class="input" type="text" placeholder="  &#127380;  Id" name = "id" required>

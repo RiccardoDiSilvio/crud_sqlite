@@ -3,10 +3,12 @@ from . import views
 
 urlpatterns = [
     path('main/', views.MainMenuView),
-    path('padre/', views.PadreCrudView),
-    path('hijo/', views.HijoCrudView),
-    path('consulta1/', views.Consulta1View),
-    path('consulta2/', views.Consulta2View),
-    path('consulta3/', views.Consulta3View),
-    path('consulta4/', views.Consulta4View),
+    path('animal/', views.AnimalCrudView.as_view()),
+    path('alimentacion/', views.AlimentacionCrudView.as_view()),
+    path('cita_control/', views.CitaDeControlCrudView.as_view()),
+    path('inseminacion/', views.InseminacionCrudView.as_view()),
+    path('pajilla/', views.PajillaCrudView.as_view()),
+    path('proceso/', views.ProcesoVeterinarioCrudView.as_view()),
+    path('venta/', views.VentaCrudView.as_view()),
+    path('veterinario/', views.VeterinarioCrudView.as_view()),
 ]
